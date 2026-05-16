@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: ColoredInventoryItems
+## Version: 1.4
+## Author: Cpt Cavern
+## Notes: Color inventory items with rarity color
+## SavedVariables: ciiConfig
+
+ColoredInventoryItems.lua

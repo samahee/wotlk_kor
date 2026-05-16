@@ -1,0 +1,6 @@
+## Interface: 30300
+## Title: CopyCat
+## Notes: Click * to copy a message.
+## Author: Cr0wL0ck
+## SavedVariables: 
+CopyCat.xml

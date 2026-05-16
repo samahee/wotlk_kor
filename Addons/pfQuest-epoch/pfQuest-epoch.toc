@@ -1,0 +1,22 @@
+## Interface: 30300
+## Title: |cff33ffccpf|cffffffffQuest |cffcccccc[Project Epoch DB]
+## Author: Bennylavaa (retired), Cuddlehorn (inactive)
+## Contributors: Exuria, Shagu, snifflewow, skmd0, trav346, emailnumero123-art, Defcons
+## Notes: A Project Epoch DB extension for pfQuest
+## Version: 3.1.8
+## Dependencies: pfQuest-wotlk
+## SavedVariables: pfQuest_epochcount, pfQuest_CompletedQuestData
+
+init\data-epoch.xml
+init\enUS-epoch.xml
+init\koKR-epoch.xml
+
+overwrites.lua
+patchtable.lua
+pfQuest-updater.lua
+pfQuest-worldmap.lua
+pfQuest-nameplates.lua
+pfQuest-announce.lua
+pfQuest-tooltip.lua
+pfQuest-config.lua
+pfquest-questlog.lua
