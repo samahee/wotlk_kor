@@ -54,6 +54,14 @@ end
 
 local expand_states = {}
 
+local function GetQuestDisplayTitle(qid, fallback)
+  if pfDB["quests"] and pfDB["quests"]["loc"] and pfDB["quests"]["loc"][qid] and pfDB["quests"]["loc"][qid]["T"] then
+    return pfDB["quests"]["loc"][qid]["T"]
+  end
+
+  return fallback
+end
+
 tracker = CreateFrame("Frame", "pfQuestMapTracker", UIParent)
 tracker:Hide()
 tracker:SetPoint("LEFT", UIParent, "LEFT", 0, 0)
@@ -351,6 +359,7 @@ function tracker.ButtonEvent(self)
     local qlogid = pfQuest.questlog[qid] and pfQuest.questlog[qid].qlogid or 0
     local qtitle, level, tag, header, collapsed, complete = compat.GetQuestLogTitle(qlogid)
     if not qlogid or not qtitle then return end
+    local displayTitle = GetQuestDisplayTitle(qid, title)
     local objectives = GetNumQuestLeaderBoards(qlogid)
     local watched = IsQuestWatched(qlogid)
     local color = pfQuestCompat.GetDifficultyColor(level)
@@ -420,7 +429,7 @@ function tracker.ButtonEvent(self)
 
     self.tracked = watched
     self.perc = percent
-    self.text:SetText(string.format("%s%s |cffaaaaaa(%s%s%%|cffaaaaaa)|r", showlevel, title or "", colorperc or "", ceil(percent)))
+    self.text:SetText(string.format("%s%s |cffaaaaaa(%s%s%%|cffaaaaaa)|r", showlevel, displayTitle or "", colorperc or "", ceil(percent)))
     self.text:SetTextColor(color.r, color.g, color.b)
     self.tooltip = pfQuest_Loc["|cff33ffcc<Click>|r Unfold/Fold Objectives\n|cff33ffcc<Right-Click>|r Show In QuestLog\n|cff33ffcc<Ctrl-Click>|r Show Map / Toggle Color\n|cff33ffcc<Shift-Click>|r Hide Nodes"]
   elseif tracker.mode == "GIVER_TRACKING" then
